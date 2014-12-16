@@ -28,4 +28,18 @@ class IdeaBoxApp < Sinatra::Base
     Idea.delete(id.to_i)
     redirect '/'
   end
+
+  get '/:id/edit' do |id|
+    idea = Idea.find(id)
+    erb :edit, locals: {id: id, idea: idea}
+  end
+
+  put '/:id' do |id|
+    data = {
+      :title => params['idea_title'],
+      :description => params['idea_description']
+    }
+    Idea.update(id.to_i, data)
+    redirect '/'
+  end
 end
