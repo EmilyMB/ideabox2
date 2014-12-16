@@ -25,7 +25,7 @@ class Idea
     end
   end
 
-  def self.all  
+  def self.all
     raw_ideas.map do |data|
       Idea.new(data[:title], data[:description])
     end
@@ -33,5 +33,11 @@ class Idea
 
   def self.database
     @database ||= YAML::Store.new('ideabox')
+  end
+
+  def self.delete(position)
+    database.transaction do
+      database['ideas'].delete_at(position)
+    end
   end
 end
