@@ -1,12 +1,6 @@
 require 'yaml/store'
 
-class Idea
-  attr_reader :title, :description
-
-  def initialize(attributes)
-    @title = attributes["title"]
-    @description = attributes["description"]
-  end
+class IdeaStore
 
   def self.raw_ideas
     raw_ideas = database.transaction do |db|
@@ -43,6 +37,13 @@ class Idea
   def self.update(id, data)
     database.transaction do
       database['ideas'][id] = data
+    end
+  end
+
+  def self.create(attributes)
+    database.transaction do
+      database['ideas'] ||= []
+      database['ideas'] << attributes
     end
   end
 end

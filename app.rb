@@ -1,5 +1,6 @@
 require 'bundler'
 require './idea'
+require './idea_store'
 Bundler.require
 
 
@@ -15,31 +16,26 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   get '/' do
-    erb :index, locals: {ideas: Idea.all}
+    erb :index, locals: {ideas: IdeaStore.all, idea:Idea.new(params)}
   end
 
   post '/' do
-    idea = Idea.new(params[:idea])
-    idea.save
+    IdeaStore.create(params[:idea])
     redirect '/'
   end
 
   delete '/:id' do |id|
-    Idea.delete(id.to_i)
+    IdeaStore.delete(id.to_i)
     redirect '/'
   end
 
   get '/:id/edit' do |id|
-    idea = Idea.find(id)
+    idea = IdeaStore.find(id)
     erb :edit, locals: {id: id, idea: idea}
   end
 
   put '/:id' do |id|
-    # data = {
-    #   :title => params['idea_title'],
-    #   :description => params['idea_description']
-    # }
-    Idea.update(id.to_i, params[:idea])
+    IdeaStore.update(id.to_i, params[:idea])
     redirect '/'
   end
 end
