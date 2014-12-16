@@ -3,7 +3,7 @@
 
   <form action="/<%= id %>" method="POST">
     <p>
-      Edit your Idea
+      Edit your Idea. This is idea's rank <%= idea.rank %> This is params[:idea] <%= params[:idea] %>.
     </p>
     <input type="hidden" name="_method" value="PUT" />
     <input type='text' name='idea[title]' value="<%= idea.title %>"/><br/>

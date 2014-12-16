@@ -15,8 +15,8 @@
       <li>
         <%= idea.title %> (<%= id %>)<br/>
         <%= idea.description %>
-        <form action='/<%= id %>/like' method='POST' style="display: inline">
-          <input type='submit' value="+"/>
+        <form action="/<%= id %>/like" method="POST" style="display: inline">
+          <input type="submit" value="+"/>
         </form>
         <a href="/<%= id %>/edit">Edit</a>
         <form action="/<%= id %>" method="POST">
