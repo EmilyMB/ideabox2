@@ -40,6 +40,8 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   post '/:id/like' do |id|
+    idea = IdeaStore.find(id.to_i)
     "I LIKE"
+    redirect '/'
   end
 end
