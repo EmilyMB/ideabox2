@@ -34,7 +34,7 @@ class IdeaStore
 
   def self.find_raw_idea(id)
     database.transaction do
-      database['ideas'].at(id.to_i)
+      database['ideas'].find{|idea| idea["id"] == id}
     end
   end
 
@@ -45,7 +45,7 @@ class IdeaStore
 
   def self.update(id, data)
     database.transaction do
-      database['ideas'][id] = data
+      database['ideas']["id"] = data
     end
   end
 
@@ -56,16 +56,21 @@ class IdeaStore
   end
 
   def self.find_raw_ideas_by_tag(tag)
-    raw_ideas = []
     database.transaction do
-      raw_ideas << database['ideas'].tags.include?(tag)
+      # require 'pry'
+      # binding.pry
+      raw_ideas = database['ideas'].map do |idea|
+        idea if idea["tags"].include?(tag)
+      end
     end
+    raw_ideas
   end
 
   def self.find_by_tag(tag)
     raw_ideas = find_raw_ideas_by_tag(tag)
     ideas = raw_ideas.map do |idea|
-      Idea.new(raw_idea.merge("id" => id))
+      Idea.new(idea)
     end
+    ideas
   end
 end

@@ -1,26 +1,20 @@
 ---
 ideas:
-- title: afdsjsadfas
-  description: dasf
-  tag: '1'
-- title: '1'
-  description: '2'
-  tag: '3'
-- title: '1'
-  description: '2'
-  tag: 'food '
-- title: ''
-  description: ''
-  tag: food, bananas
-- title: An apple
-  description: This is an apple
-  tags: food, fruit
-- title: asdfkj
-  description: asdfa
-  tags: junk, more junk
+- title: apple
+  description: stuff
+  rank: 1
+  tags:
+  - food
+  - fruit
 - title: banana
-  description: frui
-  tags: fruit, food
-- title: bread
-  description: this is bread
-  tags: food, other stuff
+  description: more stuff
+  rank: 5
+  tags: []
+- title: pear
+  description: stuff
+  rank: 7
+  tags: []
+- title: soup
+  description: stuff
+  rank: 2
+  tags: []

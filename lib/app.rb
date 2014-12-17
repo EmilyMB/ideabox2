@@ -52,5 +52,6 @@ class IdeaBoxApp < Sinatra::Base
 
   post '/sort_by_tag' do
     "you want to search by a specific tag: #{params[:tag]}"
+    # IdeaStore.find_by_tag(params[:tag])
   end
 end

@@ -34,7 +34,8 @@ class Idea
       "title" => title,
       "description" => description,
       "rank" => rank,
-      "tags" => tags
+      "tags" => tags,
+      "id" => id
     }
   end
 end
