@@ -47,11 +47,14 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   post '/sort' do
-    "You want to search by all tags"
+    erb :index, locals: {ideas: IdeaStore.all.sort_by{|hsh| hsh.tags[0]}, idea:Idea.new(params)}
   end
 
   post '/sort_by_tag' do
-    "you want to search by a specific tag: #{params[:tag]}"
-    # IdeaStore.find_by_tag(params[:tag])
+     erb :index, locals: {ideas: IdeaStore.find_by_tag(params[:tag]), idea:Idea.new(params)}
+  end
+
+  post '/weekday' do
+    erb :weekday, locals: {ideas: IdeaStore.all.sort, idea:Idea.new(params)}
   end
 end

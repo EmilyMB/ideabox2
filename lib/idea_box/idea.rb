@@ -13,8 +13,9 @@ class Idea
     if attributes["tags"].is_a? String
       @tags = attributes["tags"].split(/[,.]/).map{|tag| tag.strip}.sort
     else
-      @tags = []
+      @tags = [""]
     end
+    @time = Time.now()
   end
 
   def <=>(other)
@@ -35,7 +36,8 @@ class Idea
       "description" => description,
       "rank" => rank,
       "tags" => tags,
-      "id" => id
+      "id" => id,
+      "time" => time
     }
   end
 end
