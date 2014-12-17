@@ -3,7 +3,7 @@ require 'yaml/store'
 class Idea
   include Comparable
 
-  attr_reader :title, :description, :rank, :id, :tags
+  attr_reader :title, :description, :rank, :id, :tags, :time
 
   def initialize(attributes)
     @title = attributes["title"]

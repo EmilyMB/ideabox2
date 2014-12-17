@@ -60,6 +60,7 @@ class IdeaStore
     database.transaction do
       max_id = @database['ideas'].size + 1
       attributes["id"] = max_id
+      attributes["time"] = Time.now()
       database['ideas'] << attributes
     end
   end

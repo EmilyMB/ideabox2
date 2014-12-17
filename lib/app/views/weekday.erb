@@ -1,0 +1,20 @@
+<body>
+  <h1>IdeaBox</h1>
+
+  <h3>Existing Ideas by Weekday</h3>
+
+  <ol>
+    <!-- for weekdays 1 to seven print out those ideas -->
+    <% for day in 0..6 do %>
+      <h4>The DAY <%= day %> </h4>
+      <% ideas.each do |idea| %>
+        <%if idea.time.strftime("%w").to_i == day %>
+          <li>
+            Title: <%= idea.title %><br/>
+            Description:<%= idea.description %>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ol>
+</body>
