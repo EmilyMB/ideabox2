@@ -45,4 +45,12 @@ class IdeaBoxApp < Sinatra::Base
     IdeaStore.update(id.to_i, idea.to_h)
     redirect '/'
   end
+
+  post '/sort' do
+    "You want to search by all tags"
+  end
+
+  post '/sort_by_tag' do
+    "you want to search by a specific tag: #{params[:tag]}"
+  end
 end

@@ -54,4 +54,18 @@ class IdeaStore
       database['ideas'] << attributes
     end
   end
+
+  def self.find_raw_ideas_by_tag(tag)
+    raw_ideas = []
+    database.transaction do
+      raw_ideas << database['ideas'].tags.include?(tag)
+    end
+  end
+
+  def self.find_by_tag(tag)
+    raw_ideas = find_raw_ideas_by_tag(tag)
+    ideas = raw_ideas.map do |idea|
+      Idea.new(raw_idea.merge("id" => id))
+    end
+  end
 end
