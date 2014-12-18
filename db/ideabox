@@ -2,18 +2,17 @@
 ideas:
 - title: a
   description: asd
+  rank: 7
   tags: red
   id: 1
-- title: na
-  description: ''
-  tags: bread
-  id: 2
-- title: b
-  description: asdf
-  tags: ''
-  id: 3
+  time: 2014-12-17 15:46:28.788547000 -07:00
 - title: afdsjsadfas
   description: asd
   tags: fasd
   id: 4
   time: 2014-12-17 12:13:35.829674000 -07:00
+- title: banana
+  description: ''
+  tags: ''
+  id: 4
+  time: 2014-12-18 07:39:33.126560000 -07:00

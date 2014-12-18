@@ -15,7 +15,7 @@ class Idea
     else
       @tags = [""]
     end
-    @time = Time.now()
+    @time ||= attributes["time"]
   end
 
   def <=>(other)

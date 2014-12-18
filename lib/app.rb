@@ -47,7 +47,7 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   post '/sort' do
-    erb :index, locals: {ideas: IdeaStore.all.sort_by{|hsh| hsh.tags[0]}, idea:Idea.new(params)}
+    erb :index, locals: {ideas: IdeaStore.all.sort_by{|hsh| hsh.tags[0].nil? ? "zzz" : hsh.tags[0]}, idea:Idea.new(params)}
   end
 
   post '/sort_by_tag' do
@@ -56,5 +56,9 @@ class IdeaBoxApp < Sinatra::Base
 
   post '/weekday' do
     erb :weekday, locals: {ideas: IdeaStore.all.sort, idea:Idea.new(params)}
+  end
+
+  post '/hours' do
+    erb :hours, locals: {ideas: IdeaStore.all.sort, idea:Idea.new(params)}
   end
 end

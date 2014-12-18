@@ -13,6 +13,9 @@
   <form action="/weekday" method="POST">
     <input type="submit" value="Show ideas by day of week"/>
   </form>
+  <form action="/hours" method="POST">
+    <input type="submit" value="Show ideas by time of day"/>
+  </form>
   <form action="/sort" method="POST">
     <input type="submit" value="Sort by all tags"/>
   </form>
@@ -30,7 +33,7 @@
         </form>
         <a href="/<%= idea.id %>/edit">Edit</a><br/>
         <%= idea.tags%>
-        <%= idea.tags.class %>
+        <%= idea.time %>
         <form action="/<%= idea.id %>" method="POST">
           <input type="hidden" name="_method" value="DELETE">
           <input type="submit" value="delete"/>

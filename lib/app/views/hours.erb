@@ -1,0 +1,27 @@
+<body>
+  <h1>IdeaBox</h1>
+
+  <h3>Existing Ideas by Time of Day</h3>
+
+  <ol>
+    <% for hour in 0..23 do %>
+      <% if hour == 0 %>
+        <h4>12:00AM to 12:59AM </h4>
+      <% elsif hour < 12 %>
+        <h4><%= hour %>:00 to <%= hour %>:59AM </h4>
+      <% elsif hour == 12 %>
+        <h4><%= hour %>:00 to <%= hour %>:59PM </h4>
+      <% else %>
+        <h4><%= hour-12 %>:00 to <%= hour-12 %>:59PM </h4>
+      <% end %>
+      <% ideas.each do |idea| %>
+        <%if idea.time.strftime("%H").to_i == hour %>
+          <li>
+            Title: <%= idea.title %><br/>
+            Description:<%= idea.description %>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ol>
+</body>

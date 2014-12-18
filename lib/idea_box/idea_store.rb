@@ -22,10 +22,16 @@ class IdeaStore
 
   def self.database
     return @database if @database
-
-    @database = YAML::Store.new('db/ideabox')
-    @database.transaction do
-      @database['ideas'] ||= []
+    if ENV["RACK_ENV"] =="test"
+      @database = YAML::Store.new('db/testbox')
+      @database.transaction do
+        @database['ideas'] ||= []
+      end
+    else
+      @database = YAML::Store.new('db/ideabox')
+      @database.transaction do
+        @database['ideas'] ||= []
+      end
     end
     @database
   end
@@ -60,7 +66,7 @@ class IdeaStore
     database.transaction do
       max_id = @database['ideas'].size + 1
       attributes["id"] = max_id
-      attributes["time"] = Time.now()
+      attributes["time"] ||= Time.now()
       database['ideas'] << attributes
     end
   end
