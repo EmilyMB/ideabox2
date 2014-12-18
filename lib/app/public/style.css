@@ -6,3 +6,44 @@ h1 {
   color: navy;
   margin-left: 20px;
 }
+
+h3 {
+  color: #A1380B;
+  margin-left: 20px;
+}
+
+.btn {
+  background: #8f4117;
+  background-image: linear-gradient(to bottom, #8f4117, #4f0e0e);
+  border-radius: 5px;
+  font-family: Arial;
+  color: #f7e4f7;
+  font-size: 14px;
+  padding: 3px 4px 3px 4px;
+  border: solid #731f1f 3px;
+  text-decoration: none;
+  margin: 3px 4px 3px 0px;
+}
+
+.btn:hover {
+  background: #300a0a;
+  text-decoration: none;
+}
+
+.submit_btn {
+  background: #278F5B;
+  background-image: linear-gradient(to bottom, #278F5B, #113D27);
+  border-radius: 5px;
+  font-family: Arial;
+  color: #f7e4f7;
+  font-size: 14px;
+  padding: 3px 4px 3px 4px;
+  border: solid #082B1A 3px;
+  text-decoration: none;
+  margin: 3px 4px 3px 0px;
+}
+
+.submit_btn:hover {
+  background: #300a0a;
+  text-decoration: none;
+}

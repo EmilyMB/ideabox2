@@ -1,5 +1,4 @@
 <body>
-  <h1>IdeaBox</h1>
   <form action='/' method='POST'>
     <p>
       Your Idea:
@@ -7,38 +6,21 @@
     <input type='text' name='idea[title]' placeholder="Title"/><br/>
     <textarea name='idea[description]' placeholder="Description"></textarea><br/>
     <input type='text' name='idea[tags]' placeholder="Tags separated by commas"/><br/>
-    <input type='submit'/>
+    <input class='submit_btn' type='submit'/>
   </form>
   <h3>Existing Ideas</h3>
-  <form action="/weekday" method="POST">
-    <input type="submit" value="Show ideas by day of week"/>
+  <form action="/weekday" method="GET">
+    <input class='btn' type="submit" value="Show ideas by day of week"/>
   </form>
-  <form action="/hours" method="POST">
-    <input type="submit" value="Show ideas by time of day"/>
+  <form action="/hours" method="GET">
+    <input class='btn' type="submit" value="Show ideas by time of day"/>
   </form>
   <form action="/sort" method="POST">
-    <input type="submit" value="Sort by all tags"/>
+    <input class='btn' type="submit" value="Sort by all tags"/>
   </form>
-  <form action="/sort_by_tag" method="POST">
+  <form action="/sort_by_tag" method="GET">
     <input type='text' name='tag' placeholder="Tag to search"/><br/>
-    <input type="submit" value="Sort by specific tag"/>
+    <input class='btn' type="submit" value="Sort by specific tag"/>
   </form>
-  <ul>
-    <% ideas.each do |idea| %>
-      <li>
-        <%= idea.title %> (<%= idea.id %>)<br/>
-        <%= idea.description %>
-        <form action="/<%= idea.id %>/like" method="POST" style="display: inline">
-          <input type="submit" value="+"/>
-        </form>
-        <a href="/<%= idea.id %>/edit">Edit</a><br/>
-        <%= idea.tags%>
-        <%= idea.time %>
-        <form action="/<%= idea.id %>" method="POST">
-          <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="delete"/>
-        </form>
-      </li>
-    <% end %>
-  </ul>
+    <%= partial :'partials/idea', collection: ideas%>
 </body>
