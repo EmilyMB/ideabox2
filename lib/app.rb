@@ -7,6 +7,9 @@ class IdeaBoxApp < Sinatra::Base
   set :method_override, true
   set :root, 'lib/app'
 
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
+
   configure :development do
     register Sinatra::Reloader
   end
