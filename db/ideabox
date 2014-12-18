@@ -1,19 +1,19 @@
 ---
 ideas:
-- title: a
-  description: asdjdakflajsd
-  rank: 5
-  tags: red
-  id: 1
-  time: 
 - title: apple
   description: a
+  rank: 4
   tags: stuff, fruit
   id: 2
   time: 2014-12-18 11:44:51.611966000 -07:00
 - title: banana
   description: ''
-  rank: 6
+  rank: 8
   tags: yellow, fruit
   id: 3
   time: 2014-12-18 11:49:25.075463000 -07:00
+- title: pear
+  description: ''
+  tags: food, fruit
+  id: 3
+  time: 2014-12-18 13:58:22.219438000 -07:00

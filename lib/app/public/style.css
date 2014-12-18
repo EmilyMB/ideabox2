@@ -1,5 +1,21 @@
 body {
   background-color: #65C9C3;
+  margin-left: 20px
+}
+
+#tags {
+  border:solid #731fff 1px;
+  background-color: lightgrey;
+  border-radius: 5px;
+  margin: 15px 5px 15px 5px;
+}
+
+#like {
+  font-size: 14px;
+  border:solid #731fff 1px;
+  background-color: lightgrey;
+  border-radius: 5px;
+  margin: 15px 5px 15px 5px;
 }
 
 h1 {
@@ -12,7 +28,16 @@ h3 {
   margin-left: 20px;
 }
 
-.btn {
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid black;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.btn, #delete {
   background: #8f4117;
   background-image: linear-gradient(to bottom, #8f4117, #4f0e0e);
   border-radius: 5px;
